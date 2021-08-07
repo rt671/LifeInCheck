@@ -4,4 +4,6 @@
     <string name="end_time">End Time</string>
     <string name="start_time">Start Time</string>
     <string name="delete">Delete</string>
+    <string name="home">Life In Check</string>
+    <string name="create">Habit Details</string>
 </resources>

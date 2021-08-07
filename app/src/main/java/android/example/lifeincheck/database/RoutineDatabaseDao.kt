@@ -15,7 +15,7 @@ interface RoutineDatabaseDao{
     suspend fun delete(key: Long)
 
     @Query("SELECT * from routine_track_table WHERE routineId = :key")
-    suspend fun get(key: Long): Routine?
+    suspend fun getRoutine(key: Long): Routine?
 
     @Query("SELECT * FROM routine_track_table ORDER BY startTime ASC")
     fun getAllRoutines(): LiveData<List<Routine>>

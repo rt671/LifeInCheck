@@ -16,9 +16,9 @@ class RoutineRepository(private val routineDao: RoutineDatabaseDao) {
         routineDao.delete(routineId)
     }
 
-    suspend fun get(routineId: Long) : Routine?
+    suspend fun getRoutine(routineId: Long) : Routine?
     {
-        return routineDao.get(routineId)
+        return routineDao.getRoutine(routineId)
     }
 
     suspend fun update(routine: Routine)

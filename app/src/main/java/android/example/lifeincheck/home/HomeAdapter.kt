@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class HomeAdapter(private val listener: ViewClickAction): RecyclerView.Adapter<HomeAdapter.RoutineViewHolder>() {
 
@@ -26,9 +28,10 @@ class HomeAdapter(private val listener: ViewClickAction): RecyclerView.Adapter<H
         holder.endTime.text = currentItem.endTime
         holder.habitTitle.text = currentItem.HabitTitle
         holder.description.text = currentItem.description
-        //holder.day_cnt.text  = currentItem.days.toString()
+        var timediff: Long= Calendar.getInstance().timeInMillis - currentItem.date.time
+        holder.day_cnt.text  = "Day " +  (TimeUnit.MILLISECONDS.toDays(timediff) +1).toString()
 
-        holder.itemView.setOnClickListener{
+            holder.itemView.setOnClickListener{
             listener.onClickView(routines[position])
         }
     }
@@ -51,7 +54,7 @@ class HomeAdapter(private val listener: ViewClickAction): RecyclerView.Adapter<H
         var endTime = itemView.findViewById<TextView>(R.id.routineEndTime)
         var habitTitle = itemView.findViewById<TextView>(R.id.habitTitle)
         var description = itemView.findViewById<TextView>(R.id.routineDescription)
-        //var day_cnt = itemView.findViewById<TextView>(R.id.day_no)
+        var day_cnt = itemView.findViewById<TextView>(R.id.day_no)
     }
 }
 

@@ -7,12 +7,15 @@ import android.example.lifeincheck.databinding.FragmentCreateBinding
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.DialogTitle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import java.time.LocalDateTime
+import java.util.*
 
 class CreateFragment: Fragment() {
 
@@ -23,6 +26,7 @@ class CreateFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.create)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create, container, false)
 
         val application = requireNotNull(this.activity).application
@@ -76,11 +80,12 @@ class CreateFragment: Fragment() {
 
             if(viewModel.routineClickedCompleted.value == false)
             { viewModel.onConfirm(Routine(startTime = startTimeVal, endTime = endTimeVal, description = descriptionVal,
-            HabitTitle = titleVal))}
+            HabitTitle = titleVal, date = Date()
+            ))}
             else
             {
                 viewModel.onConfirm(Routine(routineId = args.routineID, startTime = startTimeVal, endTime = endTimeVal, description = descriptionVal,
-                    HabitTitle = titleVal))
+                    HabitTitle = titleVal, date = viewModel.routineClicked.value!!.date))
             }
 
             view?.findNavController()?.navigate(R.id.action_createFragment_to_homeFragment)

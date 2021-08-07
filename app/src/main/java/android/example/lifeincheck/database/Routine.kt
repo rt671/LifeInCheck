@@ -2,6 +2,7 @@ package android.example.lifeincheck.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "routine_track_table")
 data class Routine(
@@ -11,6 +12,6 @@ data class Routine(
     var endTime: String,
     var HabitTitle: String,
     var description: String,
-    //var days: Long
+    var date : Date
 )
 

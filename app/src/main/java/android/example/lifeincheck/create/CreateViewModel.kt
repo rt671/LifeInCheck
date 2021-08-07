@@ -45,7 +45,7 @@ class CreateViewModel(val routineID: Long, val application: Application): ViewMo
         if(routineID != (-1).toLong()) //old habit
         {
             viewModelScope.launch(Dispatchers.IO) {
-                _routineClicked.postValue(repository.get(routineID))
+                _routineClicked.postValue(repository.getRoutine(routineID))
             }
                 _routineClickedCompleted.value=true;
         }

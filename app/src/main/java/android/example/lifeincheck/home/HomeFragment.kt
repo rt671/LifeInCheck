@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -19,6 +20,7 @@ class HomeFragment: Fragment(), ViewClickAction {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.home)
         val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         binding.RoutineRecyclerView.layoutManager = LinearLayoutManager(activity)
@@ -40,7 +42,7 @@ class HomeFragment: Fragment(), ViewClickAction {
         binding.homeViewModel = viewModel
 
         binding.fabAdd.setOnClickListener{view->
-            NavigateToCreate(view, -1)
+            NavigateToCreate(view, -1, )
         }
         return binding.root
     }
