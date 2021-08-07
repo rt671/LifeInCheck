@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin">
+
+
+            <EditText
+                android:id="@+id/habitTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="9dp"
+                android:hint="Habit title"
+                android:inputType="text"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/habitDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.321" />
+
+            <EditText
+                android:id="@+id/habitDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Description"
+                android:inputType="textShortMessage"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.388"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.666"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/habitDescription">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_pickStartTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="#42A5F5"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/start_time"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/start_timeSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/time"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_pickEndTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="#42A5F5"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/end_time"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/end_timeSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/time"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="75dp"
+                android:backgroundTint="#26A69A"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Confirm"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.9"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
